@@ -6,6 +6,7 @@ new Vue({
             name: 'Bitcoin',
             img: 'https://bitcoin.org/img/icons/opengraph.png?1608131429',
             changePercent: -10,
+            color: "f4f4f4",
             price: 4000,
             pricesWithDays: [
                 { day: 'Lunes', value: 1000 },
@@ -23,6 +24,7 @@ new Vue({
     methods: {
         toggleShowPrices() {
             this.showPrices = !this.showPrices
+            this.color = this.color.split('').reverse().join('')
         }
     }
 })
