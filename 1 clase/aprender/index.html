@@ -10,17 +10,22 @@
 
 <body>
     <div id="app">
-        <img v-bind:src="img" v-bind:alt="name" height="50">
-        <h1>
+        <img @mouseover="toggleShowPrices" @mouseout="toggleShowPrices" v-bind:src="img" v-bind:alt="name" height="50">
+        <h1 v-bind:class="changePercent > 0 ? 'green' : 'red'">
             {{name}}
             <span v-if="changePercent > 0">Bien!</span>
             <span v-else="changePercent < 0">Mal :(</span>
+            <span v-on:click="toggleShowPrices">{{showPrices ? 'True':'False'}}</span>
         </h1>
-        <ul>
-            <li v-for="(p,i) in prices" v-bind:key="p">{{i}} - {{p}}</li>
-        </ul>
-        <ul>
-            <li v-for="(p,i) in pricesWithDays" v-bind:key="p.day">{{i}} - {{p.day}} - {{p.value}}</li>
+
+        <ul v-show=showPrices>
+            <li
+            class="uppercase" 
+            v-bind:class="{orange: p.value == price, red: p.value < price,green:p.value>price}"
+            v-for="(p,i) in pricesWithDays" 
+            v-bind:key="p.day">
+                {{i}} - {{p.day}} - {{p.value}}
+            </li>
         </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
