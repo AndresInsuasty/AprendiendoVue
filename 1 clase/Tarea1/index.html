@@ -13,18 +13,20 @@
         <h1>Mis Lista de Cursos</h1>
         <p>
             <span>Titulo del curso</span>
-            <input type="text"><br>
+            <input type="text" v-model="title"><br>
         </p>
         <p>
             <span>Cantidad de Horas</span>
-            <input type="number">
+            <input type="number" v-model="time">
         </p>
-        <button>Guardar Registro</button>
-
+        <button v-on:click="addCourse">Guardar Registro</button>
         <h3>Lista de Cursos</h3>
-
+        <ul>
+            <li>prueba</li>
+        </ul>
         <hr>
         <h4>Total de Horas</h4>
+        <span>{{totalTime}}</span>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="app.js"></script>
