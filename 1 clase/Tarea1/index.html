@@ -21,8 +21,9 @@
         </p>
         <button v-on:click="addCourse">Guardar Registro</button>
         <h3>Lista de Cursos</h3>
+        <p v-show="courses.length==0">Aun no hay cursos realizados</p>
         <ul>
-            <li>prueba</li>
+            <li v-for="course in courses">{{course.title}}-{{course.time}}hrs</li>
         </ul>
         <hr>
         <h4>Total de Horas</h4>

@@ -5,7 +5,7 @@ new Vue({
         return {
             title: '',
             time: 0,
-            courses: ['primero', 'segundo'],
+            courses: [],
             totalTime:0,
 
 
@@ -16,7 +16,8 @@ new Vue({
 
     methods: {
         addCourse() {
-            thiscourses = this.courses.concat(this.title)
+            this.courses = this.courses.concat({'title':this.title,'time':this.time})
+            this.totalTime += parseInt(this.time) 
             this.title = ''
             this.time = 0
         }
